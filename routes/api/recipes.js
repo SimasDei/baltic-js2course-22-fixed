@@ -32,6 +32,34 @@ router.get('/all', (req, res) => {
     .catch(err => console.log(err));
 });
 
+//@route GET api/recipes/pagination
+router.get('/pagination/:pageNumber', (req, res) => {
+  let pageNumber = req.params.pageNumber;
+  let itemsPerPage = 5;
+  Recipe.find({ createdOn: { $lte: req.createdOnBefore } })
+    .skip(itemsPerPage * pageNumber)
+    .limit(itemsPerPage)
+    .sort('-createdOn')
+    .then(recipes => res.json(recipes))
+    .catch(err => console.log(err));
+});
+
+// router.get('/:itemsPerPage/:pageNumber', function(req, res) {
+//   let itemsPerPage = parseInt(req.params.itemsPerPage); ///.*m.*/
+//   let pageNumber = parseInt(req.params.pageNumber);
+//   Recipe.find({})
+//     .skip(itemsPerPage * (pageNumber - 1))
+//     .limit(itemsPerPage)
+//     .toArray(function(err, docs) {
+//       //db.collection("recipes").update()
+//       assert.equal(err, null);
+//       console.log('Found the following records');
+//       console.log(docs);
+//       res.status(200);
+//       res.send(JSON.stringify(docs));
+//     });
+// });
+
 //@route GET api/recipes/:id
 //@ Get recipe by it's ID
 router.get('/:_id', (req, res) => {

@@ -17,6 +17,10 @@ const Meal = props => {
         <div className="card-body text-center">
           <h5 className="card-title">{props.name}</h5>
           <p className="card-text">{props.description}</p>
+          <p>
+            <small>Created On: {props.date}</small>
+          </p>
+
           <Link
             to={'recipes/update/' + props._id}
             className={'btn btn-primary'}
