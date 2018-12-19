@@ -1,0 +1,19 @@
+{
+  "name": "js2course-lesson22-fixed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "author": "Simas Dei",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
