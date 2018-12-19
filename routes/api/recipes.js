@@ -65,10 +65,11 @@ router.put('/update/:_id', (req, res) => {
 });
 
 //@ Route DELETE api/recipes/delete/:id
+//@ Desc Delete selected document from the DB
 router.delete('/delete/:_id', (req, res) => {
   Recipe.findByIdAndDelete(req.params._id)
     .then(
-      res.status(500).json({ deleted: 'Successfully deleted the Document' })
+      res.status(200).json({ deleted: 'Successfully deleted the Document' })
     )
     .catch(err => res.status(404).json(err));
 });

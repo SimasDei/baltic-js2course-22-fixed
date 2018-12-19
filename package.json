@@ -4,12 +4,14 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server"
+    "server": "nodemon server",
+    "start": "concurrently \"npm run server\" \" npm start --prefix client\""
   },
   "author": "Simas Dei",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "express": "^4.16.4",
     "mongoose": "^5.4.0"
   },
