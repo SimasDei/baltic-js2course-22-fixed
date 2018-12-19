@@ -7,7 +7,7 @@ const app = express();
 
 // DB Config
 const db =
-  'mongodb+srv://SimasDei:02894145@baltic-react-mongodb-one-l0d3u.mongodb.net/test?retryWrites=true';
+  'mongodb+srv://SimasDei:02894145@baltic-react-mongodb-one-l0d3u.mongodb.net/recipes?retryWrites=true';
 // Connect to DB
 mongoose
   .connect(
