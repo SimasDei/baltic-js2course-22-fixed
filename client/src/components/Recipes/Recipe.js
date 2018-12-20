@@ -22,11 +22,14 @@ class Recipe extends Component {
     axios.get(`/api/recipes/pagination/${pageNumber}`).then(res => {
       console.log(res);
       const recipes = res.data;
+      pageNumber++;
       this.setState({
-        recipes
+        recipes,
+        pageNumber
       });
     });
-    window.scrollTo(0, 0);
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // getRecipes = () => {
@@ -40,9 +43,8 @@ class Recipe extends Component {
       <div>
         {this.state.recipes.map(recipe => {
           return (
-            <div>
+            <div key={recipe._id} id={'theTop'}>
               <Meal
-                key={recipe._id}
                 _id={recipe._id}
                 name={recipe.name}
                 imageUrl={recipe.imageUrl}
@@ -53,8 +55,9 @@ class Recipe extends Component {
           );
         })}
         <button
+          href="#theTop"
           className={'btn btn-primary btn-block col-sm-6 offset-3'}
-          onClick={this.loadMore.bind(this, this.state.pageNumber++)}
+          onClick={this.loadMore.bind(this, this.state.pageNumber)}
         >
           Load More
         </button>

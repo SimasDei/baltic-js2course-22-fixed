@@ -4,14 +4,15 @@ img {
 
 .mainPage {
   position: relative;
-  background: url('./img/showcase.jpg') no-repeat;
+  background: url('./img/showcase.jpg') repeat-y;
   background-size: cover;
   background-position: center;
   height: 100vh;
 }
 
-.row {
-  margin-top: 250px;
+.mainHeading {
+  margin-top: 180px;
+  margin-bottom: 20px;
 }
 
 .dark-overlay {
@@ -29,4 +30,8 @@ img {
 
 .form-control::placeholder {
   color: #bbb !important;
+}
+
+.searchContainer {
+  margin-top: 200px;
 }

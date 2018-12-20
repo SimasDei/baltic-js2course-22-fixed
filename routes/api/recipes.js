@@ -44,21 +44,14 @@ router.get('/pagination/:pageNumber', (req, res) => {
     .catch(err => console.log(err));
 });
 
-// router.get('/:itemsPerPage/:pageNumber', function(req, res) {
-//   let itemsPerPage = parseInt(req.params.itemsPerPage); ///.*m.*/
-//   let pageNumber = parseInt(req.params.pageNumber);
-//   Recipe.find({})
-//     .skip(itemsPerPage * (pageNumber - 1))
-//     .limit(itemsPerPage)
-//     .toArray(function(err, docs) {
-//       //db.collection("recipes").update()
-//       assert.equal(err, null);
-//       console.log('Found the following records');
-//       console.log(docs);
-//       res.status(200);
-//       res.send(JSON.stringify(docs));
-//     });
-// });
+//@route GET api/recipes/:search
+//@ Use mongoDB search with the param given
+router.get('/search/:search', (req, res) => {
+  let search = req.params.search;
+  Recipe.find({
+    $text: { $search: search }
+  }).then(recipes => res.json(recipes).catch(err => console.log(err)));
+});
 
 //@route GET api/recipes/:id
 //@ Get recipe by it's ID

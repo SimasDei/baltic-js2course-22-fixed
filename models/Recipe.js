@@ -20,5 +20,18 @@ const RecipeSchema = new Schema({
   }
 });
 
+RecipeSchema.index(
+  {
+    name: 'text',
+    description: 'text'
+  },
+  {
+    weights: {
+      name: 5,
+      description: 1
+    }
+  }
+);
+
 // Export Model
 module.exports = Recipe = mongoose.model('recipes', RecipeSchema);
